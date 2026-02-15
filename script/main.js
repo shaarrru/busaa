@@ -29,8 +29,8 @@ const animationTimeline = () => {
     .from(".idea-3", 0.7, ideaTextTrans)
     .to(".idea-3 strong", 0.5, { scale: 1.2, x: 10, backgroundColor: "rgb(255, 105, 180)", color: "#fff" })
     .to(".idea-3", 0.7, ideaTextTransLeave, "+=1.5")
-    .from(".idea-4", 0.7, ideaTextTrans)
-    .to(".idea-4", 0.7, ideaTextTransLeave) 
+    .from(".idea-4", 0.7, ideaTextTrans, "+=1.5")
+    .to(".idea-4", 0.7, ideaTextTransLeave, "+=1.5") 
     .staggerFrom(".idea-6 span", 0.8, { scale: 3, opacity: 0, rotation: 15, ease: Expo.easeOut }, 0.2)
     .staggerTo(".idea-6 span", 0.8, { scale: 3, opacity: 0, rotation: -15, ease: Expo.easeOut }, 0.2, "+=1")
     
