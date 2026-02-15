@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Happy Valentine :)</title>
     
@@ -17,7 +17,17 @@
         margin: 0;
         padding: 0;
         min-height: 100vh;
+        width: 100%;
         overflow-x: hidden; 
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 100vw;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
       }
 
       /* iMessage-style Text Box */
@@ -29,7 +39,7 @@
         border: 1.5px solid #e5e5ea; 
         border-radius: 999px; 
         padding: 4px 4px 4px 18px; 
-        width: 95%; 
+        width: 88%; 
         max-width: 380px; 
         margin: 0 auto;
         box-shadow: 0 1px 3px rgba(0,0,0,0.04); 
@@ -37,20 +47,21 @@
 
       .hbd-chatbox {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-size: 15px;
+        font-size: 14px;
         color: #333;
         flex-grow: 1;
         text-align: left;
         line-height: 1.4;
       }
 
+      /* FIXED: Perfectly Round iMessage Button */
       .imessage-send-btn {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         width: 32px !important;
         height: 32px !important;
+        min-width: 32px !important;
         padding: 0 !important;
         background-color: #007aff !important; 
         border-radius: 50% !important; 
@@ -59,32 +70,56 @@
         margin-left: 10px;
         flex-shrink: 0;
         box-sizing: border-box !important;
-        transition: transform 0.1s ease, background-color 0.2s ease;
       }
 
-      /* Randomizing Horizontal Positions for 100 images */
+      .imessage-send-btn svg {
+        margin-top: -1px; 
+      }
+
+      /* Idea-6 (Aaaa) - Smaller for Mobile */
+      .idea-6 span {
+        font-size: 3.5rem;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      /* RESTORED: Pink Valentine Wish Styling */
+      .wish-hbd {
+        font-family: "Work Sans", sans-serif;
+        font-size: 1.8rem;
+        margin-top: 15px;
+        color: #ff69b4 !important; 
+      }
+
+      .wish-hbd span {
+        display: inline-block;
+        color: #ff69b4 !important;
+      }
+
+      /* Falling Memories (PNGs) Sizing */
       .baloons img {
         display: inline-block;
         position: absolute;
-        width: 100px; 
+        width: 85px; 
         height: auto;
         backface-visibility: hidden;
-        /* Distribute images across the width randomly */
-        left: 50%; 
+        z-index: -1;
+        left: 50%;
       }
 
-      .baloons img:nth-child(5n+1) { left: 5%; }
-      .baloons img:nth-child(5n+2) { left: 25%; }
-      .baloons img:nth-child(5n+3) { left: 50%; }
-      .baloons img:nth-child(5n+4) { left: 75%; }
-      .baloons img:nth-child(5n+5) { left: 90%; }
-      .baloons img:nth-child(3n) { margin-left: -20px; }
-      .baloons img:nth-child(4n) { margin-left: 40px; }
+      /* Horizontal lanes for mobile randomization */
+      .baloons img:nth-child(7n+1) { left: 5%; }
+      .baloons img:nth-child(7n+2) { left: 20%; }
+      .baloons img:nth-child(7n+3) { left: 35%; }
+      .baloons img:nth-child(7n+4) { left: 50%; }
+      .baloons img:nth-child(7n+5) { left: 65%; }
+      .baloons img:nth-child(7n+6) { left: 80%; }
+      .baloons img:nth-child(7n+7) { left: 95%; }
 
-      /* Flat, Blended Final Image */
+      /* Blended Final Image - Flat appearance */
       .last-img {
-        max-width: 300px;
-        width: 90%;
+        max-width: 260px;
+        width: 80%;
         height: auto;
         cursor: pointer;
         opacity: 0; 
@@ -94,7 +129,12 @@
         box-shadow: none;
         border-radius: 0;
         mix-blend-mode: multiply;
-        filter: saturate(1.2) contrast(1.05);
+        filter: saturate(1.2);
+      }
+
+      @media screen and (min-width: 768px) {
+        .idea-6 span { font-size: 5rem; }
+        .wish-hbd { font-size: 3.5rem; }
       }
     </style>
   </head>
@@ -128,7 +168,7 @@
         <p class="idea-3">I really wanted to do something <strong>Pretty Pretty</strong>.</p>
         <p class="idea-4">But 12,000 light years<br>really seems preetyy faarrr.</p>
         <p class="idea-6">
-          <span>A</span><span>a</span><span>a</span><span>a</span><span>a</span>
+          <span>A</span><span>a</span><span>a</span><span>a</span>
         </p>
       </div>
       
@@ -141,26 +181,26 @@
       
       <div class="seven">
         <div class="baloons">
-          <img src="img/b.png" alt="" /><img src="img/d.png" alt="" /><img src="img/a.png" alt="" /><img src="img/c.png" alt="" /><img src="img/e.png" alt="" />
-          <img src="img/a.png" alt="" /><img src="img/e.png" alt="" /><img src="img/c.png" alt="" /><img src="img/b.png" alt="" /><img src="img/d.png" alt="" />
-          <img src="img/e.png" alt="" /><img src="img/b.png" alt="" /><img src="img/d.png" alt="" /><img src="img/a.png" alt="" /><img src="img/c.png" alt="" />
-          <img src="img/c.png" alt="" /><img src="img/a.png" alt="" /><img src="img/b.png" alt="" /><img src="img/e.png" alt="" /><img src="img/d.png" alt="" />
-          <img src="img/d.png" alt="" /><img src="img/c.png" alt="" /><img src="img/e.png" alt="" /><img src="img/a.png" alt="" /><img src="img/b.png" alt="" />
-          <img src="img/b.png" alt="" /><img src="img/a.png" alt="" /><img src="img/d.png" alt="" /><img src="img/c.png" alt="" /><img src="img/e.png" alt="" />
-          <img src="img/e.png" alt="" /><img src="img/d.png" alt="" /><img src="img/b.png" alt="" /><img src="img/c.png" alt="" /><img src="img/a.png" alt="" />
-          <img src="img/a.png" alt="" /><img src="img/c.png" alt="" /><img src="img/e.png" alt="" /><img src="img/b.png" alt="" /><img src="img/d.png" alt="" />
-          <img src="img/d.png" alt="" /><img src="img/b.png" alt="" /><img src="img/a.png" alt="" /><img src="img/e.png" alt="" /><img src="img/c.png" alt="" />
-          <img src="img/c.png" alt="" /><img src="img/e.png" alt="" /><img src="img/d.png" alt="" /><img src="img/a.png" alt="" /><img src="img/b.png" alt="" />
-          <img src="img/b.png" alt="" /><img src="img/d.png" alt="" /><img src="img/a.png" alt="" /><img src="img/c.png" alt="" /><img src="img/e.png" alt="" />
-          <img src="img/a.png" alt="" /><img src="img/e.png" alt="" /><img src="img/c.png" alt="" /><img src="img/b.png" alt="" /><img src="img/d.png" alt="" />
-          <img src="img/e.png" alt="" /><img src="img/b.png" alt="" /><img src="img/d.png" alt="" /><img src="img/a.png" alt="" /><img src="img/c.png" alt="" />
-          <img src="img/c.png" alt="" /><img src="img/a.png" alt="" /><img src="img/b.png" alt="" /><img src="img/e.png" alt="" /><img src="img/d.png" alt="" />
-          <img src="img/d.png" alt="" /><img src="img/c.png" alt="" /><img src="img/e.png" alt="" /><img src="img/a.png" alt="" /><img src="img/b.png" alt="" />
-          <img src="img/b.png" alt="" /><img src="img/a.png" alt="" /><img src="img/d.png" alt="" /><img src="img/c.png" alt="" /><img src="img/e.png" alt="" />
-          <img src="img/e.png" alt="" /><img src="img/d.png" alt="" /><img src="img/b.png" alt="" /><img src="img/c.png" alt="" /><img src="img/a.png" alt="" />
-          <img src="img/a.png" alt="" /><img src="img/c.png" alt="" /><img src="img/e.png" alt="" /><img src="img/b.png" alt="" /><img src="img/d.png" alt="" />
-          <img src="img/d.png" alt="" /><img src="img/b.png" alt="" /><img src="img/a.png" alt="" /><img src="img/e.png" alt="" /><img src="img/c.png" alt="" />
-          <img src="img/c.png" alt="" /><img src="img/e.png" alt="" /><img src="img/d.png" alt="" /><img src="img/a.png" alt="" /><img src="img/b.png" alt="" />
+          <img src="img/b.png" /><img src="img/d.png" /><img src="img/a.png" /><img src="img/c.png" /><img src="img/e.png" />
+          <img src="img/a.png" /><img src="img/e.png" /><img src="img/c.png" /><img src="img/b.png" /><img src="img/d.png" />
+          <img src="img/e.png" /><img src="img/b.png" /><img src="img/d.png" /><img src="img/a.png" /><img src="img/c.png" />
+          <img src="img/c.png" /><img src="img/a.png" /><img src="img/b.png" /><img src="img/e.png" /><img src="img/d.png" />
+          <img src="img/d.png" /><img src="img/c.png" /><img src="img/e.png" /><img src="img/a.png" /><img src="img/b.png" />
+          <img src="img/b.png" /><img src="img/a.png" /><img src="img/d.png" /><img src="img/c.png" /><img src="img/e.png" />
+          <img src="img/e.png" /><img src="img/d.png" /><img src="img/b.png" /><img src="img/c.png" /><img src="img/a.png" />
+          <img src="img/a.png" /><img src="img/c.png" /><img src="img/e.png" /><img src="img/b.png" /><img src="img/d.png" />
+          <img src="img/d.png" /><img src="img/b.png" /><img src="img/a.png" /><img src="img/e.png" /><img src="img/c.png" />
+          <img src="img/c.png" /><img src="img/e.png" /><img src="img/d.png" /><img src="img/a.png" /><img src="img/b.png" />
+          <img src="img/b.png" /><img src="img/d.png" /><img src="img/a.png" /><img src="img/c.png" /><img src="img/e.png" />
+          <img src="img/a.png" /><img src="img/e.png" /><img src="img/c.png" /><img src="img/b.png" /><img src="img/d.png" />
+          <img src="img/e.png" /><img src="img/b.png" /><img src="img/d.png" /><img src="img/a.png" /><img src="img/c.png" />
+          <img src="img/c.png" /><img src="img/a.png" /><img src="img/b.png" /><img src="img/e.png" /><img src="img/d.png" />
+          <img src="img/d.png" /><img src="img/c.png" /><img src="img/e.png" /><img src="img/a.png" /><img src="img/b.png" />
+          <img src="img/b.png" /><img src="img/a.png" /><img src="img/d.png" /><img src="img/c.png" /><img src="img/e.png" />
+          <img src="img/e.png" /><img src="img/d.png" /><img src="img/b.png" /><img src="img/c.png" /><img src="img/a.png" />
+          <img src="img/a.png" /><img src="img/c.png" /><img src="img/e.png" /><img src="img/b.png" /><img src="img/d.png" />
+          <img src="img/d.png" /><img src="img/b.png" /><img src="img/a.png" /><img src="img/e.png" /><img src="img/c.png" />
+          <img src="img/c.png" /><img src="img/e.png" /><img src="img/d.png" /><img src="img/a.png" /><img src="img/b.png" />
         </div>
       </div>
 
